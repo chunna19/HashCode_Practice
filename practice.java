@@ -9,47 +9,47 @@ public class practice {
 		BufferedReader br = new BufferedReader(new FileReader(a));
 		String line = br.readLine();
 		String[] number1 = line.split(" ", 0);
-		long m = Integer.parseInt(number1[0]);
-		long n = Integer.parseInt(number1[1]);
+		int bnummber = Integer.parseInt(number1[0]);
+		int lnumber = Integer.parseInt(number1[1]);
+		int days = Integer.parseInt(number1[2]);
 		line = br.readLine();
-		String[] number = line.split(" ", 0);
-		long[] num = new long[number.length];
-		long sum = 0; 
-		for(int i=0; i<number.length; i++) {
-			num[i] = Integer.parseInt(number[i]);
-			sum += num[i];
+		number1 = line.split(" ", 0);
+		int[] scores = new int[number1.length];
+		for(int i=0; i<number1.length; i++){
+			scores[i] = Integer.parseInt(number1[i]);
 		}
-		System.out.println(sum);
-		long diff = sum -m;
-		System.out.println(diff);
-		int index = Arrays.binarySearch(num,diff);
-		if(index >= 0) {
-			System.out.println("Index found ");
-			System.out.println(n-1);
-			for(int j =0 ; j<n; j++) {
-				if(j!=index)
-					System.out.println(j);
-			}
-		}
-		else {
-			index = (index+1)*-1;
-			System.out.println(index);
-			if(index == 0) {
-				System.out.println("removing index = 0");
-				System.out.println(n-1);
-				for(int j =0 ; j<n; j++) {
-					if(j!=index)
-						System.out.println(j);
+		int total_time = 0;
+		line = br.readLine();
+		number1 = line.split(" ",0);
+		int t = Integer.parseInt(number1[1]);
+		total_time += t;
+		int lib = 0;							//put a loop for number of libraries
+		int[] books = new int[bnummber];
+		while(total_time < days) {
+			lib++;
+			int N = Integer.parseInt(number1[0]);
+			int n = Integer.parseInt(number1[2]);
+			line = br.readLine();
+			int indices[] = new int[N];
+			int i = 0;
+			String number[] = line.split(" ",0);
+			while(N>0) {
+				if(books[Integer.parseInt(number[N-1])] == 0) {
+					books[Integer.parseInt(number[N-1])] = 1;
+					indices[i] = Integer.parseInt(number[N-1]);
+					i++;
 				}
+				N--;
 			}
-			else if (index == n) {
-				long backsum = diff;
-				for(long k = n-1; k>=0; k--) {
-					if(backsum - num[(int) k] >= 0)
-						backsum -= num[(int)k];
-				}
-				sq
-			}
+			
+	//		for(int i=0; i<D.length; i++) {
+	//			if(i>=t) 
+	//				D[i] += n;
+	//		}
+			line = br.readLine();
+			number1 = line.split(" ",0);
+			t = Integer.parseInt(number1[1]);
+			total_time += t;
 		}
 		br.close();
 	}
